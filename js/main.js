@@ -5,14 +5,16 @@ Quello che vogliamo andare a creare con JS è:
 <div class="item">
   <img src="img/arrayImages[i]" alt="" />
 </div>
-
 */
 
 const arrayImages = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg'];
 const slider = document.querySelector('.items');
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
 //dichiaro quale slide[i] deve avere la class 'active'
 let slideAttivaIndex = 0;
 
+/* AGGIUNTA ELEMENTI ALL'HTML */
 for (let i = 0; i < arrayImages.length; i++) {
   const elementSlide = document.createElement('div');
   elementSlide.classList.add('item');
@@ -28,3 +30,28 @@ for (let i = 0; i < arrayImages.length; i++) {
   elementSlide.append(elementImg);
   slider.append(elementSlide);
 }
+
+/* /AGGIUNTA ELEMENTI ALL'HTML */
+//prendo in considerazione tutti gli elementi con class 'item', i quali vanno a finire in una specie di 'array'
+const domSlides = document.querySelectorAll('.item');
+console.log(domSlides);
+
+//Azioni al click del pulsante next
+next.addEventListener('click', function () {
+  console.log('Ho cliccato su Next');
+  if (slideAttivaIndex < domSlides.length - 1) {
+    domSlides[slideAttivaIndex].classList.remove('active');
+    slideAttivaIndex++;
+    domSlides[slideAttivaIndex].classList.add('active');
+  }
+});
+
+//Azioni al click del pulsante preview
+prev.addEventListener('click', function () {
+  console.log('Ho cliccato su Prev');
+  if (slideAttivaIndex > 0) {
+    domSlides[slideAttivaIndex].classList.remove('active');
+    slideAttivaIndex--;
+    domSlides[slideAttivaIndex].classList.add('active');
+  }
+});

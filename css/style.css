@@ -21,6 +21,7 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .items {
@@ -52,8 +53,8 @@ body {
 
 .prev,
 .next {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   margin: 10px 0;
   border-radius: 50%;
   background: #ccc;
@@ -62,36 +63,26 @@ body {
   transform: translate(-50%);
   cursor: pointer;
   z-index: 999;
+  color: black;
 }
 
-.next {
+.next i,
+.prev i {
+  line-height: 30px;
+}
+
+.prev {
   bottom: 0;
 }
 
 .prev::after {
   content: '';
-  width: 10px;
-  height: 10px;
-  transform: rotate(45deg);
-  border-top: 1px solid black;
-  border-right: 1px solid black;
   display: block;
   position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%) rotate(-45deg);
 }
 
 .next::before {
   content: '';
-  width: 10px;
-  height: 10px;
-  transform: rotate(45deg);
-  border-top: 1px solid black;
-  border-right: 1px solid black;
   display: block;
   position: absolute;
-  bottom: 35%;
-  left: 50%;
-  transform: translate(-50%) rotate(135deg);
 }
