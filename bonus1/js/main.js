@@ -27,28 +27,30 @@ for (let i = 0; i < arrayImages.length; i++) {
   elementImg.src = `img/${arrayImages[i]}`;
   elementImg.alt = `img ${arrayImages[i + 1]}`;
 
-  elementSlide.append(elementImg);
   slider.append(elementSlide);
+  elementSlide.append(elementImg);
 }
 
 /* /AGGIUNTA ELEMENTI ALL'HTML */
 //prendo in considerazione tutti gli elementi con class 'item', i quali vanno a finire in una specie di 'array'
 const domSlides = document.querySelectorAll('.item');
 console.log(domSlides);
+console.log('ciao');
 
 //Azioni al click del pulsante next
 next.addEventListener('click', function () {
-  console.log('Ho cliccato su Next');
   if (slideAttivaIndex < domSlides.length - 1) {
     domSlides[slideAttivaIndex].classList.remove('active');
     slideAttivaIndex++;
     domSlides[slideAttivaIndex].classList.add('active');
+    if (slideAttivaIndex === domSlides.length) {
+      slideAttivaIndex = 0;
+    }
   }
 });
 
 //Azioni al click del pulsante preview
 prev.addEventListener('click', function () {
-  console.log('Ho cliccato su Prev');
   if (slideAttivaIndex > 0) {
     domSlides[slideAttivaIndex].classList.remove('active');
     slideAttivaIndex--;
