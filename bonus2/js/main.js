@@ -39,10 +39,31 @@ for (let i = 0; i < arrayImages.length; i++) {
 }
 //AGGIUNTA THUMBNAILS
 //creo un elemento div con classe raccolta-thumbnails dentro container
-const raccolta = document.createElement('div');
-raccolta.classList.add('raccolta-thumbnails');
+const raccoltaThumbnailsDiv = document.createElement('div');
+raccoltaThumbnailsDiv.classList.add('raccolta-thumbnails');
 
-container.append(raccolta);
+//aggiungo il div al container
+container.append(raccoltaThumbnailsDiv);
+
+//dichiaro una variabile in cui estraggo raccolta-thumbnails
+const raccoltaTn = document.querySelector('.raccolta-thumbnails');
+
+//aggiungo gli elemen img
+for (let i = 0; i < arrayImages.length; i++) {
+  const elementThumbnails = document.createElement('div');
+  elementThumbnails.classList.add('elem-raccolta');
+
+  if (i === slideAttivaIndex) {
+    elementThumbnails.classList.add('active-thumbnails');
+  }
+
+  const elementImgRaccolta = document.createElement('img');
+  elementImgRaccolta.src = `img/${arrayImages[i]}`;
+  elementImgRaccolta.alt = `img ${arrayImages[i + 1]}`;
+
+  raccoltaTn.append(elementThumbnails);
+  elementThumbnails.append(elementImgRaccolta);
+}
 
 //prendo in considerazione tutti gli elementi con class 'item', i quali vanno a finire in una specie di 'array'
 const domSlides = document.querySelectorAll('.item');
