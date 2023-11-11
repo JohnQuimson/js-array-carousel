@@ -18,6 +18,11 @@ h1 {
   margin-top: 3.125rem;
 }
 
+h3 {
+  text-align: center;
+  margin-top: 1.125rem;
+}
+
 .container {
   width: 900px;
   margin: 6.25rem auto;
