@@ -68,6 +68,10 @@ for (let i = 0; i < arrayImages.length; i++) {
 //prendo in considerazione tutti gli elementi con class 'item', i quali vanno a finire in una specie di 'array'
 const domSlides = document.querySelectorAll('.item');
 let lunghDomSlides = domSlides.length - 1;
+//prendo in considerazione tutti gli elementi con class 'elem-raccolta', i quali vanno a finire in una specie di 'array'
+const domThumbnails = document.querySelectorAll('.elem-raccolta');
+let lunghDomThumbnails = domThumbnails.lenght - 1;
+console.log(domThumbnails);
 
 /*
 -------------------------
@@ -75,8 +79,15 @@ Azioni al click del pulsante next
 -------------------------
  */
 next.addEventListener('click', function () {
+  /*
+  -------------
+  Carosello MAIN
+  -------------
+  */
   //Di default rimuovo la classe active al primo elemento
   domSlides[slideAttivaIndex].classList.remove('active');
+  //Di default rimuovo la classe active-thumbnails al primo elemento
+  domThumbnails[slideAttivaIndex].classList.remove('active-thumbnails');
 
   //se il contatore del NodeList è minore del num di elementi dei NodeList, incrementa il contatore
   if (slideAttivaIndex < lunghDomSlides) {
@@ -90,6 +101,12 @@ next.addEventListener('click', function () {
   domSlides[slideAttivaIndex].classList.add('active');
   console.log('next');
   console.log(`Immgine con 'active': domSlides[${slideAttivaIndex}]`);
+
+  domThumbnails[slideAttivaIndex].classList.add('active-thumbnails');
+  console.log('next');
+  console.log(
+    `Immgine con 'active-thumbnails': domThumbnails[${slideAttivaIndex}]`
+  );
 });
 
 /*

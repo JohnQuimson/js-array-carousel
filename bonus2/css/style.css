@@ -106,3 +106,8 @@ h3 {
   object-fit: cover;
   filter: brightness(0.3);
 }
+
+.active-thumbnails img {
+  filter: brightness(1);
+  border: 2px solid white;
+}
