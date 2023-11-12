@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #232946;
+  background-color: #0f0e17;
   color: white;
 }
 
@@ -21,6 +21,7 @@ h1 {
 h3 {
   text-align: center;
   margin-top: 1.125rem;
+  color: #ff8906;
 }
 
 .container {
@@ -36,7 +37,6 @@ h3 {
   position: relative;
   width: 700px;
   height: 300px;
-  background-color: darkslateblue;
 }
 
 .item {
@@ -110,4 +110,8 @@ h3 {
 .active-thumbnails img {
   filter: brightness(1);
   border: 2px solid white;
+}
+
+.elem-raccolta:hover {
+  cursor: pointer;
 }

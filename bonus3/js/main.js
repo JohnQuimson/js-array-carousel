@@ -1,12 +1,5 @@
 'use strict';
 
-/*
-Quello che vogliamo andare a creare con JS è:
-<div class="item">
-  <img src="img/arrayImages[i]" alt="" />
-</div>
-*/
-
 const arrayImages = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg'];
 const slider = document.querySelector('.items');
 const next = document.querySelector('.next');
@@ -79,11 +72,6 @@ Azioni al click del pulsante next
 -------------------------
  */
 next.addEventListener('click', function () {
-  /*
-  -------------
-  Carosello MAIN
-  -------------
-  */
   //Di default rimuovo la classe active al primo elemento
   domSlides[slideAttivaIndex].classList.remove('active');
   //Di default rimuovo la classe active-thumbnails al primo elemento
@@ -103,7 +91,7 @@ next.addEventListener('click', function () {
   console.log(`Immgine con 'active': domSlides[${slideAttivaIndex}]`);
 
   domThumbnails[slideAttivaIndex].classList.add('active-thumbnails');
-  console.log('next');
+
   console.log(
     `Immgine con 'active-thumbnails': domThumbnails[${slideAttivaIndex}]`
   );
@@ -128,8 +116,35 @@ prev.addEventListener('click', function () {
   console.log(`Immgine con 'active': domSlides[${slideAttivaIndex}]`);
 
   domThumbnails[slideAttivaIndex].classList.add('active-thumbnails');
-  console.log('next');
+
   console.log(
     `Immgine con 'active-thumbnails': domThumbnails[${slideAttivaIndex}]`
   );
 });
+
+/* 
+---------------------
+Al Click su un elemento del thumbails, mi mostra quell img
+---------------------
+*/
+//Utilizzo un ciclo for per accedere a tutti gli elementi di domThumbnails, e per ognuno di essi, aggiungo un EventListener 'click'
+for (let i = 0; i < domThumbnails.length; i++) {
+  domThumbnails[i].addEventListener('click', function () {
+    // Rimuovo la classe 'active' e 'active-thumbnails' con indice 0
+    domSlides[slideAttivaIndex].classList.remove('active');
+    domThumbnails[slideAttivaIndex].classList.remove('active-thumbnails');
+
+    // Aggiungo la classe 'active-thumbnails' all'elemento cliccato
+    domThumbnails[i].classList.add('active-thumbnails');
+
+    // Aggiorno il contatore degli indici delle slide attive con il contatore i del ciclo for
+    slideAttivaIndex = i;
+
+    //Aggiungo e rimuovo 'active' agli item del carosello
+    domSlides[slideAttivaIndex].classList.remove('active');
+    domSlides[slideAttivaIndex].classList.add('active');
+
+    //stampe in console.log
+    console.log(`Hai cliccato sull'elemento: thumbnails[${i}]`);
+  });
+}
