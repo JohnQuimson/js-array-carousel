@@ -11,3 +11,5 @@ Dato un array contenente una lista di cinque immagini, creare un carosello come 
 ### Milestone 2
 
 - Con un eventListener, al 'click', rimuovo la class active al primo elemento e la assegno a quello successivo
+
+![](esercizio-main/img/screenshot/Result.png)
