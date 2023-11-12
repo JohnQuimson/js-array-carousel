@@ -116,6 +116,7 @@ Azioni al click del pulsante prev
  */
 prev.addEventListener('click', function () {
   domSlides[slideAttivaIndex].classList.remove('active');
+  domThumbnails[slideAttivaIndex].classList.remove('active-thumbnails');
 
   if (slideAttivaIndex > 0) {
     slideAttivaIndex--;
@@ -125,4 +126,10 @@ prev.addEventListener('click', function () {
   domSlides[slideAttivaIndex].classList.add('active');
   console.log('prev');
   console.log(`Immgine con 'active': domSlides[${slideAttivaIndex}]`);
+
+  domThumbnails[slideAttivaIndex].classList.add('active-thumbnails');
+  console.log('next');
+  console.log(
+    `Immgine con 'active-thumbnails': domThumbnails[${slideAttivaIndex}]`
+  );
 });
